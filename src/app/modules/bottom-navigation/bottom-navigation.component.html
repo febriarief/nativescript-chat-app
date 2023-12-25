@@ -1,0 +1,41 @@
+<GridLayout rows="*, 76dp" class="bg-mirage">
+    <!-- Page -->
+    <GridLayout row="0" [hidden]="selectedIndex !== 0">
+        <page-router-outlet name="messagesTab"></page-router-outlet>
+    </GridLayout>
+
+    <!-- <GridLayout row="0" [hidden]="selectedIndex !== 1">
+        <page-router-outlet name="jobdeskTab"></page-router-outlet>
+    </GridLayout> -->
+
+    <!-- <GridLayout row="0" [hidden]="selectedIndex !== 2">
+        <page-router-outlet name="customersTab"></page-router-outlet>
+    </GridLayout> -->
+    
+    <!-- <GridLayout row="0" [hidden]="selectedIndex !== 3">
+        <page-router-outlet name="transactionsTab"></page-router-outlet>
+    </GridLayout> -->
+
+    <!-- <GridLayout row="0" [hidden]="selectedIndex !== 4">
+        <page-router-outlet name="profileTab"></page-router-outlet>
+    </GridLayout> -->
+
+    <!-- Bottom navigation -->
+    <GridLayout row="1" rows="auto, auto" columns="*, *, *, *" height="76dp" verticalAlignment="bottom" class="mt-6 pt-10 default-box-shadow bg-gradient-bottom-navigation">
+        <ContentView row="0" rowspan="2" col="0" (tap)="switchTabByIndex(0)"></ContentView>
+        <Label row="0" col="0" text="&#xf4a6;" [ngClass]="selectedIndex === 0 ? 'bg-persian-green text-white' : 'text-regent-grey'" class="mx-20 py-8 fas f20 text-center" borderRadius="20dp"></Label>
+        <Label row="1" col="0" text="Messages" [ngClass]="selectedIndex === 0 ? 'text-white' : 'text-regent-grey'" class="mt-4 work-sans-bold f12 text-center"></Label>
+        
+        <ContentView row="0" rowspan="2" col="1" (tap)="switchTabByIndex(1)"></ContentView>
+        <Label row="0" col="1" text="&#xf2ce;" [ngClass]="selectedIndex === 1 ? 'bg-persian-green text-white' : 'text-regent-grey'" class="mx-20 py-8 fas f20 text-center" borderRadius="20dp"></Label>
+        <Label row="1" col="1" text="Status" [ngClass]="selectedIndex === 1 ? 'text-white' : 'text-regent-grey'" class="mt-4 work-sans-bold f12 text-center"></Label>
+        
+        <ContentView row="0" rowspan="2" col="2" (tap)="switchTabByIndex(2)"></ContentView>
+        <Label row="0" col="2" text="&#xf0c0;" [ngClass]="selectedIndex === 2 ? 'bg-persian-green text-white' : 'text-regent-grey'" class="mx-20 py-8 fas f20 text-center" borderRadius="20dp"></Label>
+        <Label row="1" col="2" text="Groups" [ngClass]="selectedIndex === 2 ? 'text-white' : 'text-regent-grey'" class="mt-4 work-sans-bold f12 text-center"></Label>
+        
+        <ContentView row="0" rowspan="2" col="3" (tap)="switchTabByIndex(3)"></ContentView>
+        <Label row="0" col="3" text="&#xf095;" [ngClass]="selectedIndex === 3 ? 'bg-persian-green text-white' : 'text-regent-grey'" class="mx-20 py-8 fas f20 text-center" borderRadius="20dp"></Label>
+        <Label row="1" col="3" text="Calls" [ngClass]="selectedIndex === 3 ? 'text-white' : 'text-regent-grey'" class="mt-4 work-sans-bold f12 text-center"></Label>
+    </GridLayout>
+</GridLayout>

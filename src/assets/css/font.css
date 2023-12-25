@@ -1,0 +1,58 @@
+/* Fontawesome 5 Pro */
+.fa { font-family: "Font Awesome 5 Pro Regular", "Font Awesome 5 Pro-Regular-400"; }
+.fab { font-family: "Font Awesome 5 Brands Regular", "Font Awesome 5 Brands-Regular-400"; }
+.fad { font-family: "Font Awesome 5 Duotone Solid", "Font Awesome 5 Duotone-Solid-900"; }
+.fal { font-family: "Font Awesome 5 Pro Light", "Font Awesome 5 Pro-Light-300"; }
+.fas { font-family: "Font Awesome 5 Pro Solid", "Font Awesome 5 Pro-Solid-900"; }
+
+/* Work Sans */
+.work-sans-light { font-family: "Work Sans Light", "WorkSans-Light"; }
+*, .work-sans { font-family: "Work Sans", "WorkSans-Regular"; }
+.work-sans-medium { font-family: "Work Sans Medium", "WorkSans-Medium"; }
+.work-sans-semibold { font-family: "Work Sans SemiBold", "WorkSans-SemiBold"; }
+.work-sans-bold { font-family: "Work Sans Bold", "WorkSans-Bold"; }
+
+
+/* Font size */
+.f8 { font-size: 8dp; }
+.f10 { font-size: 10dp; }
+.f12 { font-size: 12dp; }
+.f14 { font-size: 14dp; }
+.f16 { font-size: 16dp; }
+.f18 { font-size: 18dp; }
+.f20 { font-size: 20dp; }
+.f22 { font-size: 22dp; }
+.f24 { font-size: 24dp; }
+.f26 { font-size: 26dp; }
+.f28 { font-size: 28dp; }
+.f30 { font-size: 30dp; }
+.f32 { font-size: 32dp; }
+.f34 { font-size: 34dp; }
+.f36 { font-size: 36dp; }
+.f38 { font-size: 38dp; }
+.f40 { font-size: 40dp; }
+.f42 { font-size: 42dp; }
+.f44 { font-size: 44dp; }
+.f46 { font-size: 46dp; }
+.f48 { font-size: 48dp; }
+.f50 { font-size: 50dp; }
+
+
+/* Font wight */
+.fw-200 { font-weight: 200 }
+.fw-400 { font-weight: 400 }
+.fw-500 { font-weight: 500 }
+.fw-600 { font-weight: 600 }
+.fw-800 { font-weight: 800 }
+.fw-900 { font-weight: 900 }
+
+
+/* Text style */
+.text-italic { font-style: italic }
+.text-light { font-weight: 200 }
+.text-regular { font-weight: 600 }
+.text-bold { font-weight: 900 }
+
+
+/* Text align */
+.text-center { text-align: center; }

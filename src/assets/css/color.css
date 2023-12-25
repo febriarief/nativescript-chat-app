@@ -1,0 +1,49 @@
+/* Define new color variable below */
+* {
+    --charcoal-grey     : #374248;
+    --dark              : #1F2C34;
+    --mirage            : #121B22;
+    --outer-space       : #2E3A35;
+    --persian-green     : #00A884;
+    --regent-grey       : #87949C;
+    --sherwood-green    : #023A2E;
+    --white             : #FFFFFF;
+}
+
+/* Textfield placeholder */
+.text-placeholder-charcoal-grey {
+    placeholder-color: var(--charcoal-grey);
+}
+
+
+/* Background color */
+.bg-dark            { background-color: var(--dark); }
+.bg-mirage          { background-color: var(--mirage); }
+.bg-outer-space     { background-color: var(--outer-space); }
+.bg-persian-green   { background-color: var(--persian-green); }
+.bg-sherwood-green  { background-color: var(--sherwood-green); }
+.bg-white           { background-color: var(--white); }
+
+
+/* Background gradient */
+.bg-gradient-bottom-navigation {
+    background-image: linear-gradient(to right, rgba(31, 44, 52, 0.8), rgba(31, 44, 52, 0.9));
+}
+
+
+/* Box shadow */
+.default-box-shadow {
+    box-shadow: 0 0 8 2 rgba(0, 0, 0, 0.1);
+}
+
+
+/* Text color */
+.text-persian-green     { color: var(--persian-green); }
+.text-regent-grey       { color: var(--regent-grey); }
+.text-sherwood-green    { color: var(--sherwood-green); }
+.text-white             { color: var(--white); }
+
+
+/* Border color */
+.border-charcoal-grey   { border-color: var(--charcoal-grey); }
+.border-white           { border-color: var(--white); }

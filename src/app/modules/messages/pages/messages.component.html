@@ -1,0 +1,41 @@
+<GridLayout rows="auto, *">
+    <!-- Navbar -->
+    <GridLayout row="0" rows="auto, auto, auto" columns="*, auto, auto" class="bg-dark p-14">
+        <Label row="0" col="0" class="work-sans-semibold f24 text-regent-grey" verticalAlignment="center" text="ChatApp"></Label>
+        <Label row="0" col="1" class="px-10 fa f24 text-center text-regent-grey" verticalAlignment="center" text="&#xf332;"></Label>
+        <Label row="0" col="2" class="pl-10 fa f24 text-center text-regent-grey" verticalAlignment="center" text="&#xf142;"></Label>
+        
+        <ContentView row="1" height="14dp"></ContentView>
+        
+        <TextField row="2" col="0" colspan="2" class="pl-10 pr-34 f12 border-charcoal-grey text-white text-placeholder-charcoal-grey" borderWidth="1dp" borderRadius="20pd" verticalAlignment="center"hint="Search message"></TextField>
+        <Label row="2" col="1" class="px-10 fa f20 text-regent-grey" verticalAlignment="center" text="&#xf002;"></Label>
+        <Label row="2" col="2" class="pl-10 fa f24 text-regent-grey" verticalAlignment="center" text="&#xf884;"></Label>
+    </GridLayout>
+
+    <!-- List chats -->
+    <GridLayout row="1" class="bg-mirage">
+        <RadListView [items]="messages" (itemTap)="viewMessage($event)">
+            <ng-template let-message="item">
+                <StackLayout row="0" class="mt-10 px-14 pb-8 border-charcoal-grey" borderBottomWidth="1dp">
+                    <GridLayout rows="auto, auto" columns="auto, *">
+                        <NsImg row="0" rowspan="2" col="0" [src]="message.avatar" class="mr-10" width="40dp" height="40dp" [roundAsCircle]="true"></NsImg>
+        
+                        <GridLayout row="0" col="1" rows="auto, auto" columns="*, auto">
+                            <Label row="0" col="0" class="work-sans-medium f18 text-white" height="18dp" verticalAlignment="bottom" [text]="message.name"></Label>
+                            <Label row="0" col="1" class="work-sans-medium text-right f12 text-regent-grey" height="12dp" verticalAlignment="bottom" [text]="message.message_time"></Label>
+                        </GridLayout>
+        
+                        <GridLayout row="1" col="1" rows="auto" columns="auto, *, auto" class="mt-4">
+                            <!-- <Label col="0" class="fa f14 text-white" text="&#xf560;"></Label> -->
+                            <Label col="1" class="f12 text-regent-grey" [text]="message.message" [textWrap]="true"></Label>
+                            <ContentView col="2" class="bg-persian-green" height="16dp" width="16dp" borderRadius="100%">
+                                <Label class="work-sans-bold f12 text-sherwood-green text-center" height="16dp" width="16dp" text="1"></Label>
+                            </ContentView>
+                        </GridLayout>
+                    </GridLayout>
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+
+    </GridLayout>
+</GridLayout>

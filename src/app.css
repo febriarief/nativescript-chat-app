@@ -1,0 +1,10 @@
+/* @import '@nativescript/theme/css/core.css'; */
+/* @import '@nativescript/theme/css/default.css'; */
+
+@import './assets/css/color.css';
+@import './assets/css/font.css';
+@import './assets/css/spacing.css';
+
+.chat-listview {
+    transform: scaleY(-1);
+}
