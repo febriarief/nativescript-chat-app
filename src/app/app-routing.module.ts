@@ -1,23 +1,19 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { Routes } from '@angular/router';
 import { NativeScriptRouterModule } from '@nativescript/angular';
-import { ItemsComponent } from './item/items.component';
-import { ItemDetailComponent } from './item/item-detail.component';
-import { DetailMessageComponent } from './modules/messages/pages';
+import { DetailMessageComponent } from './modules/messages/detail-message/detail-message.component';
+import { AuthGuard } from './services';
 
 
 const ROUTES: Routes = [
-    { path: '', redirectTo: 'detail-message', pathMatch: 'full' },
+    { path: '', redirectTo: 'bottom-navigation', pathMatch: 'full' },
     { 
         path: 'bottom-navigation',
-        loadChildren: () => import('./modules/bottom-navigation/bottom-navigation.module').then((m) => m.BottomNavigationModule) 
+        loadChildren: () => import('./modules/bottom-navigation/bottom-navigation.module').then((m) => m.BottomNavigationModule),
+        canActivate: [() => inject(AuthGuard).canActivate()]
     },
     { path: 'detail-message', component: DetailMessageComponent },
-
-
-    { path: 'items', component: ItemsComponent },
-    { path: 'item/:id', component: ItemDetailComponent },
-]
+];
 
 @NgModule({
     imports: [

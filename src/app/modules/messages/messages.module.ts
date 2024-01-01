@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/cor
 import { Routes } from '@angular/router';
 import { NativeScriptRouterModule } from '@nativescript/angular';
 import { SharedModule } from '~/app/shared/shared.module';
-import { MessagesComponent } from './pages';
+import { MessagesComponent } from './messages.component';
 
 const COMPONENTS = [
 

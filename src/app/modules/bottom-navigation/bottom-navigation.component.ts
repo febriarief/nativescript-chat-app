@@ -39,7 +39,7 @@ export class BottomNavigationComponent implements AfterViewInit
      * @returns void
      */
     ngAfterViewInit(): void {
-        setTimeout(() => this.switchTabByIndex(0), 600);
+        this.switchTabByIndex(0);
     }
 
     /**
@@ -55,18 +55,6 @@ export class BottomNavigationComponent implements AfterViewInit
         switch(index) {
             case 0:
                 this._loadModule('messages');
-                break;
-            case 1:
-                this._loadModule('jobdesk');
-                break;
-            case 2:
-                this._loadModule('customers');
-                break;
-            case 3:
-                this._loadModule('transactions');
-                break;
-            case 4:
-                this._loadModule('profile');
                 break;
             default:
                 break;
@@ -84,11 +72,7 @@ export class BottomNavigationComponent implements AfterViewInit
         this._isModuleLoaded[outlet] = true;
 
         const outlets = {
-            messages: {messagesTab: ["messages"]},
-            jobdesk: {jobdeskTab: ["jobdesk"]},
-            customers: {customersTab: ["customers"]},
-            transactions: {transactionsTab: ["transactions"]},
-            profile: {profileTab: ["profile"]},
+            messages: {messagesTab: ["messages"]}
         };
 
         this._routerExtensions.navigate([{outlets: outlets[outlet]}], {

@@ -5,6 +5,17 @@
 @import './assets/css/font.css';
 @import './assets/css/spacing.css';
 
-.chat-listview {
-    transform: scaleY(-1);
+
+.chat-left {
+    background-color: var(--dark);
+    height: 6dp; 
+    width: 6dp; 
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.chat-right {
+    background-color: var(--persian-green);
+    height: 6dp; 
+    width: 6dp; 
+    clip-path: polygon(0 0, 0 100%, 100% 0);
 }

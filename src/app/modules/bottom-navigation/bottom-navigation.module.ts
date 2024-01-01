@@ -8,9 +8,9 @@ const PAGES = [
     BottomNavigationComponent
 ]
 
-const COMPONENTS = [
+// const COMPONENTS = [
     
-]
+// ];
 
 const routes: Routes = [
     {
@@ -22,34 +22,7 @@ const routes: Routes = [
                 outlet: 'messagesTab',
                 component: NSEmptyOutletComponent,
                 loadChildren: () => import('~/app/modules/messages/messages.module').then((m) => m.MessagesModule)
-            },
-
-            // {
-            //     path: 'jobdesk',
-            //     outlet: 'jobdeskTab',
-            //     component: NSEmptyOutletComponent,
-            //     loadChildren: () => import('~/app/modules/sales/jobdesk/jobdesk.module').then((m) => m.JobdeskModule)
-            // },
-
-            // {
-            //     path: 'customers',
-            //     outlet: 'customersTab',
-            //     component: NSEmptyOutletComponent,
-            //     loadChildren: () => import('~/app/modules/sales/customers/customers.module').then((m) => m.CustomersModule)
-            // },
-                        
-            // {
-            //     path: 'transactions',
-            //     outlet: 'transactionsTab',
-            //     component: NSEmptyOutletComponent,
-            //     loadChildren: () => import('~/app/modules/sales/transactions/transactions.module').then((m) => m.TransactionsModule)
-            // },
-            // {
-            //     path: 'profile',
-            //     outlet: 'profileTab',
-            //     component: NSEmptyOutletComponent,
-            //     loadChildren: () => import('~/app/modules/sales/profile/profile.module').then((m) => m.ProfileModule)
-            // }
+            }
         ]
     }
 ];
@@ -62,7 +35,7 @@ const routes: Routes = [
     ],
 
     declarations: [
-        ...COMPONENTS,
+        // ...COMPONENTS,
         ...PAGES
     ],
 

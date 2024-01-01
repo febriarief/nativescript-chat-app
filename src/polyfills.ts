@@ -6,6 +6,7 @@
 import '@nativescript/core/globals';
 // Install @nativescript/angular specific polyfills
 import '@nativescript/angular/polyfills';
+import '@valor/nativescript-websockets';
 
 /**
  * Zone.js and patches

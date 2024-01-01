@@ -1,8 +1,8 @@
 import { DatePipe } from "@angular/common";
-import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule, NativeScriptFormsModule } from "@nativescript/angular";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
-
+import { ChatMessageService, ChatService, LocalStorageService, UserService } from '~/app/services';
 
 @NgModule({
     imports: [
@@ -22,7 +22,11 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
     ],
 
     providers: [
+        ChatMessageService,
+        ChatService,
         DatePipe,
+        LocalStorageService,
+        UserService
     ],
 
     schemas: [
@@ -30,13 +34,5 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
         NO_ERRORS_SCHEMA
     ]
 })
-export class SharedModule {
 
-    // static forRoot(): ModuleWithProviders<SharedModule> {
-    //     return {
-    //         // ngModule: SharedModule,
-    //         // providers: [ AuthenticationService ]
-    //     };
-    // }
-
-}
+export class SharedModule {}

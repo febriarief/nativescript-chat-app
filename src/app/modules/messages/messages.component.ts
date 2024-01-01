@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ObservableArray, Page, PageTransition, Screen, SharedTransition, SharedTransitionConfig } from '@nativescript/core';
 import { RouterExtensions } from '@nativescript/angular';
-import { MessageModel } from '../models';
-import { ActivatedRoute } from '@angular/router';
+import { environment } from '~/environments/environment';
+import { ChatService } from '~/app/services';
+import { formatDateTime } from '~/app/helpers';
 
 @Component({
     selector: 'ns-messages',
@@ -12,17 +13,19 @@ import { ActivatedRoute } from '@angular/router';
 
 export class MessagesComponent implements OnInit
 {
-    private _messages: ObservableArray<MessageModel>;
+    private _messages: ObservableArray<any>;
 
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
+        private _chatService: ChatService,
         private _page: Page,
         private _routerExtensions: RouterExtensions
     ) {
         this._page.actionBarHidden = true;
+        this._messages = new ObservableArray();
     }
 
-    get messages(): ObservableArray<MessageModel> {
+    get messages(): ObservableArray<any> {
         return this._messages;
     }
 
@@ -36,21 +39,31 @@ export class MessagesComponent implements OnInit
      * @returns void
      */
     ngOnInit(): void {
-        this._messages = new ObservableArray(
-            { 
-                id: 'id', 
-                user_id: 'user_id', 
-                avatar: '~/assets/images/zee.png', 
-                name: 'Azizi', 
-                message: 'Kapan pulang? aku kangen', 
-                message_date: '2023-12-24', 
-                message_time: '13:01',
-                status: 'unread'
+        // Load chats
+        this._chatService.get()
+        .subscribe({
+            next: (res: any) => {
+                const chats = res?.data || [];
+                chats.forEach((chat: any) => {
+                    const lastMessage = chat.last_message;
+                    const friend = lastMessage.user;
+
+                    this._messages.push({
+                        id: chat.id,
+                        avatar: `${environment.imageUrl}/avatar/${friend.avatar}`,
+                        name: friend.name,
+                        message_time: formatDateTime(lastMessage.created_at),
+                        message: lastMessage.message
+                    });
+                });
+            },
+            error: (err: any) => {
+                
             }
-        );
+        });
     }
 
-    viewMessage(args): void {
+    viewMessage(args: any): void {
         const config: SharedTransitionConfig = {
             pageStart: {
                 x: Screen.mainScreen.widthDIPs,
@@ -62,7 +75,9 @@ export class MessagesComponent implements OnInit
             }
         };
 
+        const chat = this._messages.getItem(args.index);
         this._routerExtensions.navigate(["/detail-message"], {
+            queryParams: chat,
             animated: true,
             transition: SharedTransition.custom(new PageTransition(), config),
         });

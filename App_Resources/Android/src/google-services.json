@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "119564495684",
+    "project_id": "sales-tracker-dab1f",
+    "storage_bucket": "sales-tracker-dab1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119564495684:android:0e2910864beaa424bb0511",
+        "android_client_info": {
+          "package_name": "com.idevart.attendanceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119564495684-hme0jecc0um5jjb8kb5cko60grnieehj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp-ddbbsxigWNct8yqAfuox05NGQ45eS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119564495684-hme0jecc0um5jjb8kb5cko60grnieehj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119564495684:android:8f80f4a43752111cbb0511",
+        "android_client_info": {
+          "package_name": "com.idevart.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119564495684-hme0jecc0um5jjb8kb5cko60grnieehj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp-ddbbsxigWNct8yqAfuox05NGQ45eS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119564495684-hme0jecc0um5jjb8kb5cko60grnieehj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

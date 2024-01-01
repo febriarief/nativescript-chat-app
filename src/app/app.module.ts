@@ -1,14 +1,17 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { NativeScriptModule } from '@nativescript/angular';
+import { NativeScriptHttpClientModule, NativeScriptModule } from '@nativescript/angular';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Application } from '@nativescript/core';
 import { TNSImageModule } from "@nativescript-community/ui-image/angular";
 import * as imageModule from "@nativescript-community/ui-image";
+import { StoreModule } from '@ngrx/store';
+import { NativeScriptNgRxDevtoolsModule } from '@valor/nativescript-ngrx-devtools';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ItemsComponent } from './item/items.component';
-import { ItemDetailComponent } from './item/item-detail.component';
-import { Application } from '@nativescript/core';
-import { DetailMessageComponent } from './modules/messages/pages';
+import { counterReducer } from '~/app/reducers';
+import { DetailMessageComponent } from './modules/messages/detail-message/detail-message.component';
+import { AuthGuard, ExtendedHttpInterceptor, FcmService } from './services';
 
 
 if (Application.android) {
@@ -26,19 +29,26 @@ if (Application.android) {
     imports: [
         AppRoutingModule,
         NativeScriptModule,
+        NativeScriptHttpClientModule,
+        NativeScriptNgRxDevtoolsModule.forRoot(),
         SharedModule,
+        StoreModule.forRoot({ count: counterReducer }),
         TNSImageModule
     ],
 
     declarations: [
         AppComponent,
-        DetailMessageComponent,
-        ItemsComponent,
-        ItemDetailComponent
+        DetailMessageComponent
     ],
 
     providers: [
-
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ExtendedHttpInterceptor,
+            multi: true
+        },
+        AuthGuard,
+        FcmService
     ],
 
     schemas: [

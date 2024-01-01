@@ -1,0 +1,57 @@
+<ActionBar class="bg-dark">
+    <GridLayout rows="auto" columns="auto, auto, *, auto, auto" width="100%">
+        <Label col="0" class="fa f26 py-10 pr-10 text-white" text="&#xf060;" (tap)="goBack()"></Label>
+        <NsImg col="1" [src]="avatar" class="ml-8" width="36dp" height="36dp" [roundAsCircle]="true"></NsImg>
+
+        <GridLayout rows="auto, auto" col="2" columns="auto, *" class="ml-10">
+            <Label row="0" col="0" colspan="2" class="work-sans-semibold f20 text-white" [text]="name"></Label>
+            
+            <Label row="1" col="0" class="fas f10 text-persian-green border-white" height="10dp" width="10dp" borderWidth="1dp" borderRadius="100%" text="&#xf111;"></Label>
+            <Label row="1" col="1" class="ml-4 f12 text-white" text="Online"></Label>
+        </GridLayout>
+        
+        <Label col="3" class="fa f22 p-10 text-white" text="&#xf4d2;"></Label>
+        <Label col="4" class="mr-4 p-10 fa f22 text-white" text="&#xf142;"></Label>
+    </GridLayout>
+</ActionBar>
+
+<GridLayout rows="*, auto" class="bg-mirage">
+    <RadListView row="0" [items]="messages" (loaded)="onRadlistViewLoaded($event)">
+        <ng-template let-message="item" let-i="index">
+            <GridLayout class="mx-10">
+                <!-- Left chat -->
+                <GridLayout *ngIf="message.position === 'left'" rows="auto">
+                    <GridLayout columns="auto, *" class="mb-16 {{ i === 0 ? 'mt-16' : '' }}">
+                        <ContentView col="0" class="chat-left" verticalAlignment="top"></ContentView>
+                        
+                        <GridLayout col="1" rows="auto, auto" class="py-4 px-10 bg-dark" [width]="message.message.length > 50 ? '80%' : 'auto'" horizontalAlignment="left" borderTopRightRadius="10%" borderBottomRightRadius="10%" borderBottomRightRadius="10%" borderBottomLeftRadius="10%">
+                            <Label row="0" col="1" class="text-white" [text]="message.message" [textWrap]="true"></Label>
+                            <Label row="1" class="mt-6 f12 text-white" opacity=".6" horizontalAlignment="right" [text]="message.timestamp"></Label>
+                        </GridLayout>
+                        
+                    </GridLayout>
+                </GridLayout>
+
+                <!-- Right chat -->
+                <GridLayout *ngIf="message.position === 'right'" rows="auto">
+                    <GridLayout columns="*, auto" class="mb-16">
+                        <GridLayout col="0" rows="auto, auto" class="py-4 px-10 bg-persian-green" [width]="message.message.length > 50 ? '80%' : 'auto'" horizontalAlignment="right" borderTopLeftRadius="10%" borderBottomRightRadius="10%" borderBottomRightRadius="10%" borderBottomLeftRadius="10%">
+                            <Label row="0" col="1" class="text-white" [text]="message.message" [textWrap]="true"></Label>
+                            <Label row="1" class="mt-6 f12 text-white" opacity=".6" horizontalAlignment="right" [text]="message.timestamp"></Label>
+                        </GridLayout>
+                        
+                        <ContentView col="1" class="chat-right" verticalAlignment="top"></ContentView>
+                    </GridLayout>
+                </GridLayout>
+            </GridLayout>
+        </ng-template>
+    </RadListView>
+    
+    <GridLayout row="1" rows="auto" columns="*, auto" class="px-14 py-14 bg-outer-space" verticalAlignment="bottom">
+        <TextView class="px-24 bg-mirage f14 text-white text-placeholder-charcoal-grey" height="40dp" borderRadius="100%" borderWidth="0" hint="Type a message"></TextView>
+
+        <ContentView col="1" class="ml-10 bg-persian-green" height="40dp" width="40dp" borderRadius="100%" (tap)="sendMessage()">
+            <Label class="fas f24 text-white text-center" text="&#xf1d8;"></Label>
+        </ContentView>
+    </GridLayout>
+</GridLayout>
